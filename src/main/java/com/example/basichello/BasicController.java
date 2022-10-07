@@ -9,10 +9,11 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.ArrayList;
 import java.util.List;
 
+@CrossOrigin(origins= {"*"}, maxAge = 4800, allowCredentials = "false" )
 @RestController
 @RequestMapping("/hello")
 public class BasicController {
-    @CrossOrigin("http://karthikreactapp.eastus.cloudapp.azure.com:80")
+
     @GetMapping("/world")
     List<UserData> hello() {
         System.out.println("I am accepting Request");
