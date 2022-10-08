@@ -25,14 +25,14 @@ public class BasicController {
         String pattern = "MM-dd-yyyy";
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
         String date = simpleDateFormat.format(new Date());
-//        repository.save(Employee
-//                .builder()
-//                .name("Karthikeyan Nadesan")
-//                .dateOfBirth(new Date())
-//                .dept("Engineering")
-//                .joiningDate(new Date())
-//                .salary(10000)
-//                .build());
+        repository.save(Employee
+                .builder()
+                .name("Karthikeyan Nadesan")
+                .dateOfBirth(new Date())
+                .dept("Engineering")
+                .joiningDate(new Date())
+                .salary(10000)
+                .build());
         return userDataList;
     }
 
