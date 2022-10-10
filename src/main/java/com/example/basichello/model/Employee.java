@@ -14,10 +14,8 @@ import java.util.Date;
 
 @Entity
 @Table
-@Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Builder
 public class Employee {
     @Id
     @GeneratedValue
@@ -27,4 +25,48 @@ public class Employee {
     private long salary;
     private Date joiningDate;
     private Date dateOfBirth;
+
+    public int getEmployeeID() {
+        return employeeID;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getDept() {
+        return dept;
+    }
+
+    public void setDept(String dept) {
+        this.dept = dept;
+    }
+
+    public long getSalary() {
+        return salary;
+    }
+
+    public void setSalary(long salary) {
+        this.salary = salary;
+    }
+
+    public Date getJoiningDate() {
+        return joiningDate;
+    }
+
+    public void setJoiningDate(Date joiningDate) {
+        this.joiningDate = joiningDate;
+    }
+
+    public Date getDateOfBirth() {
+        return dateOfBirth;
+    }
+
+    public void setDateOfBirth(Date dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
+    }
 }

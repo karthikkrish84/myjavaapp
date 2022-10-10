@@ -25,14 +25,6 @@ public class BasicController {
         String pattern = "MM-dd-yyyy";
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
         String date = simpleDateFormat.format(new Date());
-        repository.save(Employee
-                .builder()
-                .name("Karthikeyan Nadesan")
-                .dateOfBirth(new Date())
-                .dept("Engineering")
-                .joiningDate(new Date())
-                .salary(10000)
-                .build());
         return userDataList;
     }
 
@@ -46,8 +38,9 @@ public class BasicController {
         return repository.findAll();
     }
 
-    @DeleteMapping("/employee/{id}")
-    public void deleteByID(@PathVariable("id") Integer id) {
-        repository.delete(Employee.builder().employeeID(id).build());
-    }
+//    @DeleteMapping("/employee/{id}")
+//    public void deleteByID(@PathVariable("id") Integer id) {
+//
+//        repository.delete(Employee.builder().employeeID(id).build());
+//    }
 }
