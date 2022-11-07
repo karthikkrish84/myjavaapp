@@ -28,12 +28,12 @@ public class BasicController {
         return userDataList;
     }
 
-    @PostMapping("/employee")
+    @PostMapping("/api/employee")
     public Employee addEmployee(@RequestBody Employee employee) {
         return repository.save(employee);
     }
 
-    @GetMapping("/employee")
+    @GetMapping("/api/employee")
     public List<Employee> getEmployees() {
         return repository.findAll();
     }
