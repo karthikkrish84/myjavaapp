@@ -1,6 +1,7 @@
 steps:
   - label: "Build Project"
     command: " mvn package"
+    artifact_paths: "target/*.jar"
   - label: "Build Image"
     command: "docker build --tag karthikkrish84/myjavaapp ."
   - label: "Push Image"
