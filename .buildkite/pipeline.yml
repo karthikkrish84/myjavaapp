@@ -12,5 +12,5 @@ steps:
   - label: "Deploy"
     commands:
       - "git clone git@github.com:karthikkrish84/GKE-deployment-files.git"
-      - "cd java"
+      - "cd GKE-deployment-files/java"
       - "kubectl apply -f java-deployment.yaml"
