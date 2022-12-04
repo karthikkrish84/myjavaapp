@@ -1,0 +1,5 @@
+steps:
+  - label: "Build Image"
+    command: "docker build --tag karthikkrish84/myjavaapp ."
+  - label: "Push Image"
+    command: "docker push karthikkrish84/myjavaapp:latest"
