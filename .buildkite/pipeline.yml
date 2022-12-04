@@ -4,5 +4,8 @@ steps:
     artifact_paths: "target/*.jar"
   - label: "Build Image"
     command: "docker build --tag karthikkrish84/myjavaapp ."
+    plugins:
+      - artifacts#v1.8.0:
+          download: "target/*.jar"
   - label: "Push Image"
     command: "docker push karthikkrish84/myjavaapp:latest"
