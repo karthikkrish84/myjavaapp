@@ -1,4 +1,6 @@
 steps:
+  - label: "Build Project"
+    command: " mvn package"
   - label: "Build Image"
     command: "docker build --tag karthikkrish84/myjavaapp ."
   - label: "Push Image"
