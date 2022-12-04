@@ -13,4 +13,8 @@ steps:
     commands:
       - "git clone git@github.com:karthikkrish84/GKE-deployment-files.git"
       - "cd GKE-deployment-files/java"
-      - "kubectl apply -f java-deployment.yaml"
+      - "kubectl apply -f java-deployment.yaml -n awsproject"
+      - "kubectl apply -f java-service.yaml -n awsproject"
+      - "kubectl apply -f java-configmap.yaml -n awsproject"
+      - "kubectl create secret generic javaapp --from-literal=SQL_PASSWORD=kihtrak -n awsproject"
+      - "kubectl apply -f java-hpa.yaml -n awsproject"
