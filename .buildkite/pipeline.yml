@@ -11,5 +11,6 @@ steps:
     command: "docker push karthikkrish84/myjavaapp:latest"
   - label: "Deploy"
     commands:
-      - "echo $PATH"
-      - "java -version"
+      - "git clone git@github.com:karthikkrish84/GKE-deployment-files.git"
+      - "cd java"
+      - "kubectl apply -f java-deployment.yaml"
