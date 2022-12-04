@@ -10,4 +10,6 @@ steps:
   - label: "Push Image"
     command: "docker push karthikkrish84/myjavaapp:latest"
   - label: "Deploy"
-    command: "deploy.sh"
+    commands:
+      - "echo $PATH"
+      - "java -version"
