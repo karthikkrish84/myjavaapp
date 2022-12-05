@@ -1,6 +1,9 @@
 steps:
   - label: "Build Project"
-    command: " mvn package"
+    env:
+      PATH: "$PATH:/var/lib/buildkite-agent/apache-maven-3.6.3/bin:/var/lib/buildkite-agent:/usr/local/bin"
+      AWS_PROFILE: "buildkite"
+    command: "mvn package"
     artifact_paths: "target/*.jar"
   - label: "Build Image"
     command: "docker build --tag karthikkrish84/myjavaapp ."
