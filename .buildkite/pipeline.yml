@@ -13,6 +13,9 @@ steps:
   - label: "Push Image"
     command: "docker push karthikkrish84/myjavaapp:latest"
   - label: "Deploy"
+    env:
+      PATH: "$PATH:/var/lib/buildkite-agent/apache-maven-3.6.3/bin:/var/lib/buildkite-agent:/usr/local/bin"
+      AWS_PROFILE: "buildkite"
     commands:
       - "git clone git@github.com:karthikkrish84/GKE-deployment-files.git"
       - "cd GKE-deployment-files/java"
