@@ -12,6 +12,15 @@ steps:
           download: "target/*.jar"
   - label: "Push Image"
     command: "docker push karthikkrish84/myjavaapp:latest"
+  - label: "Create Secret"
+    env:
+      PATH: "$PATH:/var/lib/buildkite-agent/apache-maven-3.6.3/bin:/var/lib/buildkite-agent:/usr/local/bin"
+      AWS_PROFILE: "buildkite"
+    commands:
+      - "git clone git@github.com:karthikkrish84/GKE-deployment-files.git"
+      - "cd GKE-deployment-files/java"
+      - "kubectl create secret generic javaapp --from-literal=SQL_PASSWORD=kihtrak -n awsproject"
+    if: build.message =~ /secret/
   - label: "Deploy"
     env:
       PATH: "$PATH:/var/lib/buildkite-agent/apache-maven-3.6.3/bin:/var/lib/buildkite-agent:/usr/local/bin"
@@ -22,5 +31,4 @@ steps:
       - "kubectl apply -f java-deployment.yaml -n awsproject"
       - "kubectl apply -f java-service.yaml -n awsproject"
       - "kubectl apply -f java-configmap.yaml -n awsproject"
-      - "kubectl create secret generic javaapp --from-literal=SQL_PASSWORD=kihtrak -n awsproject"
       - "kubectl apply -f java-hpa.yaml -n awsproject"
